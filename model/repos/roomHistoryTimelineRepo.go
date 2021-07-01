@@ -132,7 +132,7 @@ func (tl *RoomHistoryTimeLineRepo) loadHistory(roomID string) {
 	if spend > types.DB_EXCEED_TIME {
 		log.Warnf("load db exceed %d ms RoomHistoryTimeLineRepo.loadHistory finished room:%s spend:%d ms", types.DB_EXCEED_TIME, roomID, spend)
 	} else {
-		log.Debugf("load db succ RoomHistoryTimeLineRepo.loadHistory finished room:%s spend:%d ms", roomID, spend)
+		log.Infof("load db succ RoomHistoryTimeLineRepo.loadHistory finished room:%s spend:%d ms", roomID, spend)
 	}
 
 	for idx := len(evs) - 1; idx >= 0; idx-- {
