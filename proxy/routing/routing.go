@@ -18,7 +18,9 @@
 package routing
 
 import (
+	"fmt"
 	"net/http"
+	"runtime"
 
 	"github.com/finogeeks/ligase/common"
 	"github.com/finogeeks/ligase/common/apiconsumer"
@@ -76,6 +78,11 @@ func Setup(
 			}
 		}),
 	).Methods(http.MethodGet, http.MethodOptions)
+
+	apiMux.HandleFunc("/gc", func(w http.ResponseWriter, r *http.Request) {
+		runtime.GC()
+		fmt.Fprintf(w, "gc done\n")
+	})
 
 	prefixMap := map[string]string{
 		"v1":       "/_matrix/client/api/v1",
