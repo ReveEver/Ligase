@@ -495,7 +495,7 @@ push_service:
     android_push_server_url: "<your android push server url>"
 
 log:
-    level: info
+    level: error
     files: [./log/ligase.log]
     underlying: zap
     redirect_stderr: false
@@ -507,7 +507,7 @@ log:
         compress: true
         json_format: false
         bt_enabled: true
-        bt_level: error
+        bt_level: dpanic
         field_separator: space
 
 cache:
